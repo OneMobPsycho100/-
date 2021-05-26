@@ -1,4 +1,4 @@
-package simple;
+package t1_simple;
 
 /**
  * InsertionSortCode

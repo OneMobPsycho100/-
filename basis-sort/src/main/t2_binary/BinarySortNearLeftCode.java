@@ -1,4 +1,4 @@
-package binary;
+package t2_binary;
 
 import java.util.Arrays;
 

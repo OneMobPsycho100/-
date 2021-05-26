@@ -1,48 +1,47 @@
-package binary;
+package t2_binary;
 
 import java.util.Arrays;
 
 /**
- * 有序数组中找到num
+ * 有序数组中找到<=num的最右位置
  *
  * @author cmz
- * @date 2021-05-24 22:42
+ * @date 2021-05-24 22:57
  */
-public class BinarySortCode {
+public class BinarySortNearRightCode {
 
 
-    public static boolean binarySortExist(int[] arr, int num) {
+    public static int binarySortNearRight(int[] arr, int num) {
 
         if (arr == null || arr.length == 0) {
-            return false;
+            return -1;
         }
 
         int L = 0;
         int R = arr.length - 1;
+        int min = -1;
 
         while (L <= R) {
             int mid = (L + R) / 2;
-            if (arr[mid] == num) {
-                return true;
-            }
-            if (arr[mid] < num) {
+            if (arr[mid] <= num) {
+                min = mid;
                 L = mid + 1;
             } else {
                 R = mid - 1;
             }
         }
-
-        return false;
+        return min;
     }
 
+
     // for test
-    public static boolean test(int[] sortedArr, int num) {
-        for (int cur : sortedArr) {
-            if (cur == num) {
-                return true;
+    public static int test(int[] arr, int value) {
+        for (int i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] <= value) {
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
     // for test
@@ -54,6 +53,17 @@ public class BinarySortCode {
         return arr;
     }
 
+    // for test
+    public static void printArray(int[] arr) {
+        if (arr == null) {
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         int testTime = 500000;
         int maxSize = 10;
@@ -63,14 +73,16 @@ public class BinarySortCode {
             int[] arr = generateRandomArray(maxSize, maxValue);
             Arrays.sort(arr);
             int value = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
-            if (test(arr, value) != binarySortExist(arr, value)) {
-                System.out.println("出错了！");
+            if (test(arr, value) != binarySortNearRight(arr, value)) {
+                printArray(arr);
+                System.out.println(value);
+                System.out.println(test(arr, value));
+                System.out.println(binarySortNearRight(arr, value));
                 succeed = false;
                 break;
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
     }
-
 
 }
