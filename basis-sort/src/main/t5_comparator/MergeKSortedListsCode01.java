@@ -1,6 +1,5 @@
 package t5_comparator;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -36,7 +35,7 @@ import java.util.PriorityQueue;
  * 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
- * @author cmz
+ * @author cmz 复习打卡
  * @date 2021-06-13 22:33
  */
 public class MergeKSortedListsCode01 {
@@ -57,7 +56,6 @@ public class MergeKSortedListsCode01 {
         if (lists.length == 1) {
             return lists[0];
         }
-
         // 所以链表从小到大升序
         PriorityQueue<ListNode> heap = new PriorityQueue<>((Comparator.comparingInt(o -> o.val)));
         for (ListNode node : lists) {
@@ -78,6 +76,7 @@ public class MergeKSortedListsCode01 {
                 heap.add(cur.next);
             }
         }
+
         return head;
     }
 
@@ -94,6 +93,7 @@ public class MergeKSortedListsCode01 {
         nodes[1] = node2;
 
         System.out.println(mergeKLists(nodes));
+
 
     }
 
