@@ -33,7 +33,7 @@ package t6_tree;
 public class T1_SameTree {
 
 
-    public static boolean isSameTree(Node p, Node q) {
+    public static boolean isSameTree(TreeNode p, TreeNode q) {
 
         if (p == null ^ q == null) {
             return false;
@@ -43,7 +43,7 @@ public class T1_SameTree {
             return true;
         }
 
-        return p.value == q.value && isSameTree(p.left, q.left) && isSameTree(p.right, q.left);
+        return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.left);
     }
 
 }
