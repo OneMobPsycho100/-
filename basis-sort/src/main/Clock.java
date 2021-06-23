@@ -6,4 +6,5 @@
  */
 public class Clock {
      // 学习打卡
+     // 学习打卡，设计模式
 }
