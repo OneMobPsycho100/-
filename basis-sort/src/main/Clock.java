@@ -8,4 +8,5 @@ public class Clock {
      // 学习打卡
      // 学习打卡，设计模式
      // 借助Jackson的JsonTypeInfo注解实现多态类的解析
+     // 微服务落地的痛点（开发，运维），devops和敏捷开发
 }
